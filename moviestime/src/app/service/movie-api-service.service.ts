@@ -23,7 +23,6 @@ export class MovieApiServiceService {
 
 
   getSearchMovie(data: any): Observable<any> {
-    console.log(data, 'movie#');
 
     return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${data.movieName}`);
   }

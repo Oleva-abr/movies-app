@@ -55,6 +55,7 @@
           src="https://image.tmdb.org/t/p/original/{{ trending.poster_path }}"
           class="rowimg largesposter"
           alt="banner"
+          [routerLink]="['/movie', trending.id]"
         />
       </ng-container>
     </div>

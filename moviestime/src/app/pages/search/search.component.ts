@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: MovieApiServiceService) { }
 
   ngOnInit(): void {
   }
 
+  searchResult: any;
+  searchForm = new FormGroup({
+    'movieName': new FormControl(null)
+  })
+
+  submitForm() {
+    this.service.getSearchMovie(this.searchForm.value).subscribe((value) => {
+      this.searchResult = value.results
+    })
+  }
 }

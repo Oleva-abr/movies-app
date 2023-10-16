@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'moviestime';
   navbg: any;
   @HostListener('document:scroll') scrolover() {
-    console.log(document.body.scrollTop, "!!!!!!!!!")
+
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbg = {
         'background-color': '#000000'

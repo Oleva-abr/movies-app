@@ -24,7 +24,7 @@
 }
 
 .rowimg {
-  max-height: 100px;
+  max-height: 200px;
   object-fit: contain;
   width: 100%;
   box-sizing: content-box;
@@ -43,8 +43,4 @@
 
 .rowposter::-webkit-scrollbar {
   display: none;
-}
-#carouselExampleDark .carousel-control-next,
-.carousel-control-prev {
-  fill: white !important;
 }

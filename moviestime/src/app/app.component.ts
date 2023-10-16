@@ -8,8 +8,9 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'moviestime';
   navbg: any;
-  @HostListener('document:scroll') scrolover() {
+  @HostListener('document:scroll', ['$event'])
 
+  scrolover(event: Event) {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbg = {
         'background-color': '#000000'
@@ -18,4 +19,5 @@ export class AppComponent {
       this.navbg = {}
     }
   }
+
 }

@@ -24,12 +24,12 @@
 }
 
 .rowimg {
-  max-height: 200px;
+  max-height: 100px;
   object-fit: contain;
   width: 100%;
   box-sizing: content-box;
   transition: transform 450ms;
-  margin-right: 7px;
+  margin-right: 8px;
 }
 
 .rowimg:hover {

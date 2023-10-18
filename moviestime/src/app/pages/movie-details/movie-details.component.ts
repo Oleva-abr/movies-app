@@ -11,18 +11,43 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(private service: MovieApiServiceService, private router: ActivatedRoute) { }
 
-  getMoviedetailData: any;
+  getMovieDetailData: any;
+  getMovieVideoData: any;
+  getMovieCastData: any;
 
   ngOnInit(): void {
     let getParamId = this.router.snapshot.paramMap.get('id')
 
     this.getMovie(getParamId);
+    this.getVideo(getParamId);
+    this.getCast(getParamId);
   }
 
 
   getMovie(id: any) {
     this.service.getMovieDetails(id).subscribe((details) => {
-      this.getMoviedetailData = details
+
+      this.getMovieDetailData = details
     })
   }
+
+  getVideo(id: any) {
+    this.service.getMovieVideo(id).subscribe((video) => {
+
+      video.results.forEach((element: any) => {
+        if (element.type === 'Trailer') {
+
+          this.getMovieVideoData = element.key;
+        }
+      });
+    })
+  }
+
+  getCast(id: any) {
+    this.service.getMovieCast(id).subscribe((cast) => {
+
+      this.getMovieCastData = cast.cast;
+    })
+  }
+
 }

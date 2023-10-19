@@ -1,6 +1,6 @@
 <div class="contain mt-5">
   <div class="row p-5">
-    <div class="col-lg-2">
+    <div class="col-lg-2" *ngIf="getMovieDetailData.poster_path">
       <img
         src="https://image.tmdb.org/t/p/original/{{
           getMovieDetailData?.poster_path
@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-lg-4" *ngFor="let cast of getMovieCastData">
             <div class="row mt-2 mb-2">
-              <div class="col-lg-2">
+              <div class="col-lg-2" *ngIf="cast.profile_path">
                 <img
                   src="https://image.tmdb.org/t/p/original/{{
                     cast?.profile_path
